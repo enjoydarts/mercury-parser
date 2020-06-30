@@ -1,16 +1,16 @@
 {
-  "name": "@postlight/mercury-parser",
-  "version": "2.2.0",
+  "name": "avogadro-mercury-parser",
+  "version": "2.2.1-avogadro",
   "description": "Mercury transforms web pages into clean text. Publishers and programmers use it to make the web make sense, and readers use it to read any web article comfortably.",
   "author": "Postlight <mercury@postlight.com>",
   "homepage": "https://mercury.postlight.com",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/postlight/mercury-parser.git"
+    "url": "git+https://github.com/thoraxe/mercury-parser.git"
   },
   "bugs": {
-    "url": "https://github.com/postlight/mercury-parser/issues"
+    "url": "https://github.com/thoraxe/mercury-parser/issues"
   },
   "keywords": [
     "mercury",
@@ -125,6 +125,7 @@
     "turndown": "^5.0.3",
     "url": "^0.11.0",
     "valid-url": "^1.0.9",
+    "watchman": "^1.0.0",
     "wuzzy": "^0.1.4",
     "yargs-parser": "^14.0.0"
   },
