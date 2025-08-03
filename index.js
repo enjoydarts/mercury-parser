@@ -26,11 +26,22 @@ const fetchWithEncoding = (url) =>
         request.get(options, (error, response, body) => {
             if (error) return reject(error);
 
-            const detected = jschardet.detect(body);
-            const encoding = detected.encoding || 'UTF-8';
-            const decoded = iconv.decode(body, encoding);
+            const contentType = response.headers['content-type'] || '';
+            const match = contentType.match(/charset=([\w-]+)/i);
+            let encoding = match ? match[1].toUpperCase() : null;
 
-            resolve(decoded);
+            if (!encoding || encoding === 'BINARY') {
+                const detected = jschardet.detect(body);
+                encoding = detected.encoding ? detected.encoding.toUpperCase() : 'UTF-8';
+            }
+
+            try {
+                const decoded = iconv.decode(body, encoding);
+                resolve(decoded);
+            } catch (e) {
+                console.warn(`Failed to decode with encoding ${encoding}, fallback to UTF-8`);
+                resolve(iconv.decode(body, 'UTF-8'));
+            }
         });
     });
 
