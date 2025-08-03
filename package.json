@@ -52,6 +52,7 @@
         "difflib": "github:postlight/difflib.js",
         "ellipsize": "0.1.0",
         "express": "^5.1.0",
+        "got": "11.8.5",
         "iconv-lite": "^0.6.3",
         "jquery": "^3.4.1",
         "jschardet": "^3.1.4",
